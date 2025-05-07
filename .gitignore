@@ -136,3 +136,7 @@ mmedit/.mim
 
 # by jqxu
 scripts/
+
+models
+
+*.mp4
