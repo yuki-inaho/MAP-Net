@@ -270,7 +270,7 @@ def main():
         try:
             for i in tqdm(range(num_frames_out), desc="Writing frames"):
                 frame_tensor = dehazed_output_tensor[:, i, :, :, :]
-                img_np = tensor2img(frame_tensor, min_max=(0, 1), out_type=np.uint8)
+                img_np = cv2.cvtColor(tensor2img(frame_tensor, min_max=(0, 1), out_type=np.uint8), cv2.COLOR_RGB2BGR)
                 video_writer.write(img_np)
         except Exception as e:
             logger.exception(f"Error during writing video frames: {e}")
